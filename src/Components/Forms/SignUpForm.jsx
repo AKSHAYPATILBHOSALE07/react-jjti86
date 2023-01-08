@@ -11,10 +11,24 @@ const SignUpForm = () => {
   const onUserNameChange = (e) => setUserName(e.target.value);
   const onPasswordChange = (e) => setPassword(e.target.value);
 
-  const handleSubmit = () => {
-    console.log("userName: " + userName);
-    console.log("password: " + password);
-  }
+  // const handleSubmit = () => {
+  //   console.log("userName: " + userName);
+  //   console.log("password: " + password);
+  // }
+
+  const handleSubmit = async ()=>{
+    console.warn(userName, password);
+  
+    let result = await fetch("http://localhost:8080/api/signup", { 
+    method: 'post',
+    body: JSON.stringify({userName, password}),
+    // headers:{
+    //         'Contents-Type':'application/json'
+    //      }
+     });
+     result= await result.json();
+    console.warn(result);
+  } 
 
   return (
     <>
