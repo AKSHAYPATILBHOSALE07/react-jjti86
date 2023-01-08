@@ -12,8 +12,8 @@ const SignUpForm = () => {
   const onPasswordChange = (e) => setPassword(e.target.value);
 
   const handleSubmit = () => {
-    console.log(userName);
-    console.log(password);
+    console.log("userName: " + userName);
+    console.log("password: " + password);
   }
 
   return (
