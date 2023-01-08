@@ -5,30 +5,32 @@ import { InputLabel, Input, FormHelperText, TextField } from '@mui/material';
 import { Button, Grid } from '@mui/material';
 
 const SignUpForm = () => {
-  const [userName, setUserName] = useState('');
-  const [password, setPassword] = useState('');
+  const [userName, setuserName] = useState('');
+  const [password, setpassword] = useState('');
 
-  const onUserNameChange = (e) => setUserName(e.target.value);
-  const onPasswordChange = (e) => setPassword(e.target.value);
+  const onUserNameChange = (e) => setuserName(e.target.value);
+  const onPasswordChange = (e) => setpassword(e.target.value);
 
   // const handleSubmit = () => {
   //   console.log("userName: " + userName);
   //   console.log("password: " + password);
   // }
 
-  const handleSubmit = async ()=>{
+  const handleSubmit = async () => {
     console.warn(userName, password);
-  
-    let result = await fetch("http://localhost:8080/api/signup", { 
-    method: 'post',
-    body: JSON.stringify({userName, password}),
-    // headers:{
-    //         'Contents-Type':'application/json'
-    //      }
-     });
-     result= await result.json();
+
+    let result = await fetch('http://localhost:8080/api/users/signup', {
+      method: 'post',
+      body: JSON.stringify({ userName, password }),
+      headers: {
+        'Contents-Type': 'application/json',
+      },
+    });
+    console.log(userName + ' ' + password);
+    result = await result.json();
+    console.log('111111111111111111111111111111111');
     console.warn(result);
-  } 
+  };
 
   return (
     <>
@@ -49,7 +51,7 @@ const SignUpForm = () => {
                 id="outlined-basic"
                 label="Username"
                 variant="outlined"
-                onChange={onUserNameChange}
+                onChange={(e) => setuserName(e.target.value)}
                 value={userName}
               />
             </Grid>
@@ -63,7 +65,12 @@ const SignUpForm = () => {
               />
             </Grid>
             <Grid item sx={{ p: 1 }}>
-              <Button variant="contained" value="submit" type="submit" onClick={handleSubmit}>
+              <Button
+                variant="contained"
+                value="submit"
+                type="submit"
+                onClick={handleSubmit}
+              >
                 Signup
               </Button>
             </Grid>
