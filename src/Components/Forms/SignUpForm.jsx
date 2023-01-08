@@ -1,10 +1,21 @@
 import React from 'react';
-import './style.css';
+import { useState } from 'react';
 import { FormControl } from '@mui/material';
 import { InputLabel, Input, FormHelperText, TextField } from '@mui/material';
 import { Button, Grid } from '@mui/material';
 
-export default function SignUpForm() {
+const SignUpForm = () => {
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+
+  const onUserNameChange = (e) => setUserName(e.target.value);
+  const onPasswordChange = (e) => setPassword(e.target.value);
+
+  const handleSubmit = () => {
+    console.log(userName);
+    console.log(password);
+  }
+
   return (
     <>
       <Grid
@@ -24,6 +35,8 @@ export default function SignUpForm() {
                 id="outlined-basic"
                 label="Username"
                 variant="outlined"
+                onChange={onUserNameChange}
+                value={userName}
               />
             </Grid>
             <Grid item sx={{ p: 1 }}>
@@ -31,14 +44,19 @@ export default function SignUpForm() {
                 id="outlined-basic"
                 label="Password"
                 variant="outlined"
+                onChange={onPasswordChange}
+                value={password}
               />
             </Grid>
             <Grid item sx={{ p: 1 }}>
-              <Button variant="contained">Signup</Button>
+              <Button variant="contained" value="submit" type="submit" onClick={handleSubmit}>
+                Signup
+              </Button>
             </Grid>
           </FormControl>
         </Grid>
       </Grid>
     </>
   );
-}
+};
+export default SignUpForm;
