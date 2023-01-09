@@ -20,8 +20,10 @@ export default function SignUp() {
     };
     fetch('http://localhost:8080/api/users/signup', requestOptions)
       .then((response) => response.json())
-      .then((data) =>
-        setPostId('ID: ' + data.id + ' Username: ' + data.userName)
+      .then(
+        (data) => 
+        console.log(data)
+        //setPostId('ID: ' + data.id + ' Username: ' + data.userName)
       );
 
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
