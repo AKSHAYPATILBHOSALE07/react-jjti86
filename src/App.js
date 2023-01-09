@@ -1,14 +1,12 @@
 import React from 'react';
 import './style.css';
-import SignUpForm from './Components/Forms/SignUpForm';
-import PostRequestHooks from './Components/PostRequestHooks';
+import SignUp from './Components/SignUp';
 
 export default function App() {
   return (
     <>
       <div>
-        {/* <SignUpForm /> */}
-        <PostRequestHooks />
+        <SignUp />
       </div>
     </>
   );
