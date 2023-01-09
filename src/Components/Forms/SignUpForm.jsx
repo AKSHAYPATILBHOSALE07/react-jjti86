@@ -19,17 +19,20 @@ const SignUpForm = () => {
   const handleSubmit = async () => {
     console.warn(userName, password);
 
-    let result = await fetch('http://localhost:8080/api/users/signup', {
-      method: 'post',
-      body: JSON.stringify({ userName, password }),
-      headers: {
-        'Contents-Type': 'application/json',
-      },
-    });
-    console.log(userName + ' ' + password);
-    result = await result.json();
-    console.log('111111111111111111111111111111111');
-    console.warn(result);
+    useEffect(() => {
+      // POST request using fetch inside useEffect React hook
+      const requestOptions = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ userName: userName,
+      password: password})
+      };
+      fetch('http://localhost:8080/api/users/signup', requestOptions)
+          .then(response => response.json())
+          .then(data => console.log(data));
+
+  // empty dependency array means this effect will only run once (like componentDidMount in classes)
+  }, []);
   };
 
   return (
