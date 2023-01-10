@@ -9,7 +9,7 @@ export default function App() {
   return (
     <>
       <div>
-        <SignUp />
+        <SignUp /> 
         {/* <Header />
         <Main /> */}
         <ResponsiveAppBar />
