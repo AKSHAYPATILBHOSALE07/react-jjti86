@@ -10,6 +10,7 @@ import {
 import Data from './Pages/Data';
 
 import App from './App';
+import ResponsiveAppBar from './Components/ResponsiveAppBar';
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
@@ -17,6 +18,7 @@ const root = createRoot(rootElement);
 root.render(
   <StrictMode>
     <BrowserRouter>
+      <ResponsiveAppBar />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="data" element={<Data />} />
