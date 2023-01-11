@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FormControl } from '@mui/material';
-import { InputLabel, Input, FormHelperText, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
 import { Button, Grid } from '@mui/material';
 import Box from '@mui/material/Box';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 
-import { Login } from '../Forms/Login';
 
-var register = 'false';
+
 export default function SignUp() {
   const [postId, setPostId] = useState(null);
   const [userName, setuserName] = useState('');
   const [password, setpassword] = useState('');
   const [authMode, setAuthMode] = useState('signin');
 
+  const navigate = useNavigate();
   //useEffect(() => {
   // POST request using fetch inside useEffect React hook
   const handleSubmit = (e) => {
@@ -50,6 +51,7 @@ export default function SignUp() {
         (data) => console.log(data)
         //setPostId('ID: ' + data.id + ' Username: ' + data.userName)
       );
+      navigate('/data', { replace: true });
   };
 
   if (authMode === 'signin') {
