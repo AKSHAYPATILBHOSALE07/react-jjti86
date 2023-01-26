@@ -57,9 +57,9 @@ export default function SignUp() {
   if (authMode === 'signin') {
     return (
       <>
-        <div className="card text-center m-3">
+        {/* <div className="card text-center m-3">
           <h5 className="card-header">POST Request with React Hooks</h5>
-          <div className="card-body">Returned Data: {postId}</div>
+          <div className="card-body">Returned Data: {postId}</div> */}
 
           <>
             <Grid
@@ -119,7 +119,7 @@ export default function SignUp() {
               </Grid>
             </Grid>
           </>
-        </div>
+        {/* </div> */}
       </>
     );
   }
